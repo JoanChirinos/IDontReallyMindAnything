@@ -31,12 +31,12 @@ public class TestMatrixFinder {
     MatrixFinder.printMatrix(arr);
   }//end display
 
-  //return time taken in seconds as a double
+  //return time taken in nanoseconds as a double
   public static double timer(int[][] arr, int searchTerm) {
-    long current = System.currentTimeMillis();
-    search(arr, searchTerm);
-    long end = System.currentTimeMillis();
-    return (current - end) / 1000.;
+    long start = System.nanoTime();
+    String s = search(arr, searchTerm);
+    long end = System.nanoTime();
+    return (end - start) / 1000000000.;
   }//end timer
 
   //gets average run time for worst case of a matrix of a set size. Runs
@@ -52,13 +52,13 @@ public class TestMatrixFinder {
 
   public static void main(String[] args) {
     String toWrite = "";
-    for (int i = 100000; i <= 100000; i += 100) {
+    for (int i = 10000; i <= 20000; i += 100) {
       double[] times = getRuntimes(i);
       for (double x : times) {
         toWrite += i + "," + x + "\n";
       }
     }
-    FileRW.write(toWrite, "data");
+    FileRW.write(toWrite, "newdata.csv");
   }//end main
 
 }//end class
