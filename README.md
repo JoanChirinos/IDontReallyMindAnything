@@ -19,6 +19,8 @@ To test this method, we designed a tester class. The main method of the class fo
 1. For every number, n,  starting at 10000 and ending at 20000 (counting up by 100) time the search on an array of size n x n guaranteed to give the worst time
 2. Log the size (n) and the time taken into a csv file
 
+### Results
+
 Afterwards, we used Microsoft Excel to graph the points on a "size of array vs. time taken" graph. We also used Excel to draw the line of best fit, which turned out to be linear.
 
 ![Graph showing a linear relationship between the size of a 2d array and the time taken to search using our search method](https://github.com/JoanChirinos/IDontReallyMindAnything/blob/master/data.png)
