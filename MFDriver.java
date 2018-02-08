@@ -2,7 +2,7 @@
 Team IDontReallyMindAnything - Rohan Ahammed, Joan Chirinos, Soojin Choi
 */
 
-public class TestMatrixFinder {
+public class MFDriver {
 
   public static int[][] popMatrix(int size) {
     int[][] arr = new int[size][size];
