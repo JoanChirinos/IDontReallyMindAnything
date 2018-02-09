@@ -31,34 +31,38 @@ public class MFDriver {
     MatrixFinder.printMatrix(arr);
   }//end display
 
-  //return time taken in nanoseconds as a double
-  public static double timer(int[][] arr, int searchTerm) {
+  //return time taken in nanoseconds as a long
+  public static long timer(int[][] arr, int searchTerm) {
     long start = System.nanoTime();
     String s = search(arr, searchTerm);
     long end = System.nanoTime();
-    return (end - start) / 1000000000.;
+    return (end - start);
   }//end timer
 
   //gets average run time for worst case of a matrix of a set size. Runs
   //search on the worst case scenario 100 times
-  public static double[] getRuntimes(int sizeOfMatrix) {
-    double[] timeStore = new double[100];
+  public static long[] getRuntimes(int sizeOfMatrix) {
+    long[] timeStore = new long[1000];
     int[][] matrix = popMatrix(sizeOfMatrix);
-    for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 1000; i++) {
       timeStore[i] = timer(matrix, 2 * sizeOfMatrix - 2);
     }
     return timeStore;
   }//end getAverageRunTime
 
   public static void main(String[] args) {
+    long start = System.nanoTime();
     String toWrite = "";
-    for (int i = 10000; i <= 20000; i += 100) {
-      double[] times = getRuntimes(i);
-      for (double x : times) {
+    for (int i = 10000; i <= 20000; i += 50) {
+      long[] times = getRuntimes(i);
+      System.out.println(i);
+      for (long x : times) {
         toWrite += i + "," + x + "\n";
       }
     }
-    FileRW.write(toWrite, "newdata.csv");
+    FileRW.write(toWrite, "data.csv");
+    long end = System.nanoTime();
+    System.out.println(((end - start) / 1000000000.) + "");
   }//end main
 
 }//end class
