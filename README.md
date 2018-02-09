@@ -2,10 +2,15 @@
 ## Rohan Ahammed, Joan Chirinos, Soojin Choi, pd08
 
 ### Hypothesis
-We predicted that we could formulate an algorithm that searches through a matrix sorted horizontally and vertically in linear time.
+We predicted that we could formulate an algorithm that searches through a matrix sorted horizontally, left to right in ascending order,  and vertically, top to bottom in ascending order,  in linear time, or O(n). This was based on the various traces we have done through smaller n x n 2D arrays, in which the number of comparisons and passes through our algorithm was about 2n - 1. Due to the nature of Big O notation, this would be simplified to linear time.
 
 ### Background
 For an unsorted array, you would do a simple linear search. The worst case for this is O(n^2). When a 1D array is sorted, you can take advantage of the fact that, given an element, all elements before it are less than or equal to the element and all elements after after it are greater than or equal to the element. The 2D array given is also sorted in the sense that, given any element, the elements to the left of it or above it (same array with lower index or prior arrays with same index) are less than the given element and the elements to the right or below it (same array with greater index or subsequent arrays with same index) are greater than the given element. We wanted to take advantage of this fact.
+
+Our algorithm is summarized as: MatrixFinder searches for a term in a left to right, top to bottom ordered matrix in O(n). The matrix must fit the following restrictions:
+   - Given any row, the elements increase from left to right
+   - Given any column, the elements increase from top to bottom.
+The search method searches for int x in int[][] nums by starting at the last element of the first row (top right). If this element is too high, it will test the previous element of the same row. If this element is too low, it will search the element in the next row of the same column. If the searching causes the row or column to go out of bounds, it returns "(-1, -1)", meaning that the search term is not found. If the search term was found, it returns "(r, c)"
 
 ### Experiment methodology
 Our search method begins the search at the last index of the first row. It repeats the following steps until the element is found or the indices are out of bounds:
@@ -24,3 +29,7 @@ To test this method, we designed a tester class. The main method of the class fo
 Afterwards, we used Microsoft Excel to graph the points on a "size of array vs. time taken" graph. We also used Excel to draw the line of best fit, which turned out to be linear.
 
 ![Graph showing a linear relationship between the size of a 2d array and the time taken to search using our search method](https://github.com/JoanChirinos/IDontReallyMindAnything/blob/master/data.png)
+
+### Conclusions
+
+Based on the line of best fit, created using the data from our experiment, it is clear that the runtime of our algorithm is O(n), or linear time. This must be true because our data basically forms a linear line, which is indicative of this run time.
