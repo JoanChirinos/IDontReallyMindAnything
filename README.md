@@ -1,5 +1,6 @@
-# IDontReallyMindAnything
-## Rohan Ahammed, Joan Chirinos, Soojin Choi, pd08
+# Searching Through Matrix in O(n) Time
+
+## Team IDontReallyMindAnything - Rohan Ahammed, Joan Chirinos, Soojin Choi, pd08
 
 ### Hypothesis
 We predicted that we could formulate an algorithm that searches through a matrix sorted horizontally, left to right in ascending order,  and vertically, top to bottom in ascending order,  in linear time, or O(n). This was based on the various traces we have done through smaller n x n 2D arrays, in which the number of comparisons and passes through our algorithm was about 2n - 1. Due to the nature of Big O notation, this would be simplified to linear time.
@@ -28,4 +29,6 @@ Afterwards, we used Microsoft Excel to graph the points on a "size of array vs. 
 
 ### Conclusions
 
-Based on the line of best fit, created using the data from our experiment, it is clear that the runtime of our algorithm is O(n), or linear time. This must be true because our data basically forms a line, which is indicative of this run time. 
+Based on the line of best fit, created using the data from our experiment, it is clear that the runtime of our algorithm is O(n), or linear time. This must be true because our data basically forms a line, which is indicative of this run time.
+
+It is clear from the graph that there is some variance in the algorithm. We attributed this to background processes running on Joan's Macbook. Although he tried to close all background processes, some, such as Siri and Spotlight, don't close for long.
