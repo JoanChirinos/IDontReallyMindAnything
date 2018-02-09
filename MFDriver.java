@@ -3,11 +3,13 @@ Team IDontReallyMindAnything - Rohan Ahammed, Joan Chirinos, Soojin Choi
 */
 
 public class MFDriver {
-
+    
+  //This populates a 2D array in such a way that it guarantees an easy worst
+  //scenario
   public static int[][] popMatrix(int size) {
     int[][] arr = new int[size][size];
 
-    //makes sure the matric conforms to the specification
+    //makes sure the matrix conforms to the specification
     for (int r = 0; r < size - 1; r++) {
       for (int c = 0; c < size; c++) {
         arr[r][c] = r + c;
@@ -50,6 +52,8 @@ public class MFDriver {
     return timeStore;
   }//end getAverageRunTime
 
+  //Tests runtimes for every 50 array sizes between [10k, 20k] and writes to
+  //data.csv. Also prints time taken, in seconds, afterwards
   public static void main(String[] args) {
     long start = System.nanoTime();
     String toWrite = "";
