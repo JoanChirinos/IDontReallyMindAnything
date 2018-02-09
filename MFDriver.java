@@ -42,7 +42,7 @@ public class MFDriver {
   }//end timer
 
   //gets average run time for worst case of a matrix of a set size. Runs
-  //search on the worst case scenario 100 times
+  //search on the worst case scenario 1050 times
   public static long[] getRuntimes(int sizeOfMatrix) {
     long[] timeStore = new long[1050];
     int[][] matrix = popMatrix(sizeOfMatrix);
@@ -54,6 +54,10 @@ public class MFDriver {
 
   //Tests runtimes for every 50 array sizes between [10k, 20k] and writes to
   //data.csv. Also prints time taken, in seconds, afterwards
+
+  //Note that every test case has 50 "throw-away" values that are not counted
+  //because they typically occur from circumstances outside of our reach, such
+  //as JVM startup and the like
   public static void main(String[] args) {
     //"warm-up"
     for (int i = 0; i < 1000; i++) {
